@@ -1,0 +1,105 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+import static java.lang.Math.abs;
+public class Main
+{
+ public static void main(String[] args) {
+  System.out.println("Hello World");
+  
+  Scanner in = new Scanner(System.in);
+  Main m = new Main();
+  
+  out.println("Enter the number of the task: ");
+  int n = in.nextInt();
+  switch(n) {
+      case 2:    
+          out.println("Enter the number: ");
+          int n2 = in.nextInt();
+          String x2 = m.reverseListNums(n2);
+          out.println(x2);
+          break;
+      case 4:
+          out.println("Enter the number: ");
+          int a4 = in.nextInt();
+          out.println("Enter the degree of the number: ");
+          int b4 = in.nextInt();
+          int x4 = m.pow(a4, b4);
+          out.println(x4);
+          break;
+      case 6:
+          out.println("Enter the number: ");
+          int n6 = in.nextInt();
+          boolean x6 = m.equalNum(n6);
+          out.println(x6);
+          break;
+      case 8:
+          out.println("Enter the number of pyramid levels: ");
+          int a8 = in.nextInt();
+          m.leftTriangle(a8);
+          break;
+      case 10:
+          m.guessGame();
+          break; 
+      default: out.println("ERROR"); break;
+  }
+  
+ }
+ 
+ public String reverseListNums (int x) {
+     String numbers = "";
+     for (int i = x; i >= 0; i--) {
+         numbers += i + " ";
+     }
+     return numbers;
+ }
+ 
+  public int pow (int x, int y) {
+      int num = 1;
+      for (int i = 1; i < y; i++) {
+          num *= x;
+      }
+      return num;
+  }
+  
+  public boolean equalNum (int x) {
+      int x1 = x % 10;
+      int x2 = x % 10;
+      while (x1 == x2) {
+          x /= 10;
+          x2 = x % 10;
+      }
+      if (x == 0) {
+          return true;
+      }
+      else {
+          return false;
+      }
+  }
+  
+  public void leftTriangle (int x) {
+      String triangle = "";
+      for (int i = 0; i < x; i++) {
+          triangle += "*";
+          out.println(triangle);
+      }
+  }
+ 
+  public void guessGame() {
+      Scanner in = new Scanner(System.in);
+      int x = (int)(Math.random()*(9+1));
+      int y = 10;
+      int count = 0;
+      while (y != x) {
+        if (count == 0) {
+            out.println("Try and guess the number from 0 to 9!");
+        }
+        else {
+            out.println("WRONG! Try again");
+        }
+        y = in.nextInt();
+        count++;
+      }
+      out.println("YOU WIN! AMOUNT OF TRIES: " + count);
+  }
+ 
+}
