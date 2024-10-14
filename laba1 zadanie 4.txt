@@ -1,0 +1,159 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+import static java.lang.Math.abs;
+public class Main
+{
+ public static void main(String[] args) {
+  System.out.println("Hello World");
+  
+  Scanner in = new Scanner(System.in);
+  Main m = new Main();
+  
+  out.println("Enter the size of the array:" );
+  int arr_size = in.nextInt();
+  
+  int[] arr = new int[arr_size];
+  out.println("Fill the created array: ");
+  for (int i = 0; i < arr.length; i ++) {
+     arr[i] = in.nextInt();
+  }
+  
+  for (int i = 0; i < arr.length; i++) {
+     out.print(arr[i] + " ");
+  }
+  out.println(" ");
+  
+  out.println("Enter the number of the task: ");
+  int n = in.nextInt();
+  switch(n) {
+      case 2:    
+          out.println("Enter the search number: ");
+          int n2 = in.nextInt();
+          int x2 = m.findLast(arr, n2);
+          out.println(x2);
+          break;
+      case 4:
+          out.println("Enter the number: ");
+          int a4 = in.nextInt();
+          out.println("Enter the number's position: ");
+          int b4 = in.nextInt();
+          int[] x4 = m.add(arr, a4, b4);
+          for (int i = 0; i <x4.length; i++) {
+             out.print(x4[i] + " ");
+          }
+          out.println(" ");
+          break;
+      case 6:
+          m.reverse(arr);
+          for (int i = 0; i < arr.length; i++) {
+             out.print(arr[i] + " ");
+          }
+          out.println(" ");
+          break;
+      case 8:
+          out.println("Create the second array");
+          
+          out.println("Enter the size of the array:" );
+          int arr_size2 = in.nextInt();
+          int[] arr2 = new int[arr_size2];
+          out.println("Fill the created array: ");
+          for (int i = 0; i < arr2.length; i ++) {
+              arr2[i] = in.nextInt();
+          }
+  
+          for (int i = 0; i < arr2.length; i++) {
+              out.print(arr2[i] + " ");
+          }
+          out.println(" ");
+          
+          int[] x8 = m.concat(arr,arr2);
+          for (int i = 0; i < x8.length; i++) {
+             out.print(x8[i] + " ");
+          }
+          out.println(" ");
+          break;
+      case 10:
+          int[] x10 = m.deleteNegative(arr);
+          for (int i = 0; i < x10.length; i++) {
+             out.print(x10[i] + " ");
+          }
+          out.println(" ");
+          break;
+      default: out.println("ERROR"); break;
+  }
+  
+ }
+ 
+ public int findLast (int[] arr, int x) {
+     int counter = -1;
+     for (int i = 0; i < arr.length; i++) {
+         if (arr[i] == x) {
+             counter = i;
+         }
+     }
+     return counter;
+ }
+ 
+ public int[] add (int[] arr, int x, int pos) {
+     int[] arr2 = new int[arr.length + 1];
+     int j = 0;
+     int i = 0;
+     while (j != arr2.length) {
+         if (j == pos) {
+             arr2[j] = x;
+             j++;
+         }
+         else {
+             arr2[j] = arr[i];
+             j++; 
+             i++;
+         }
+     }
+     return arr2;
+ }
+ 
+ public void reverse (int[] arr) {
+     int[] arr2 = new int[arr.length];
+     int j = arr2.length - 1;
+     for (int i = 0; i < arr.length; i++) {
+         arr2[i] = arr[j];
+         j--;
+     }
+     for (int i = 0; i < arr.length; i++) {
+         arr[i] = arr2[i];
+     }
+ }
+ 
+ public int[] concat (int[] arr1,int[] arr2) {
+     int[] arr3 = new int[arr1.length + arr2.length];
+     int j = 0;
+     for (int i = 0; i < arr1.length; i++) {
+         arr3[j] = arr1[i];
+         j++;
+     }
+     for (int i = 0; i < arr2.length; i++) {
+         arr3[j] = arr2[i];
+         j++;
+     }
+     return arr3;
+ }
+ 
+ public int[] deleteNegative (int[] arr) {
+     int count = 0;
+     for (int i = 0; i < arr.length; i++) {
+         if (arr[i] < 0) {
+             count++;
+         }
+     }
+     int[] arr2 = new int[count];
+     int j = 0;
+     for (int i = 0; i < arr.length; i++) {
+         if (arr[i] >= 0) {
+             arr2[j] = arr[i];
+             j++;
+         }
+     }
+     return arr2;
+ }
+ 
+}
