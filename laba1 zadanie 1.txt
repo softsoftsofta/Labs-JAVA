@@ -1,5 +1,6 @@
 import static java.lang.System.out;
 import java.util.Scanner;
+import static java.lang.Math.abs;
 public class Main
 {
  public static void main(String[] args) {
@@ -63,8 +64,8 @@ public class Main
         return 0;
      }
      else {
-         int y_last = x % 10;
-         int y_prelast = (x / 10) % 10;
+         int y_last = (abs(x)) % 10;
+         int y_prelast = (abs(x) / 10) % 10;
          return y_last + y_prelast;
      }
  }  
