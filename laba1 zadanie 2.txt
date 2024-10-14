@@ -1,0 +1,121 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+public class Main
+{
+ public static void main(String[] args) {
+  System.out.println("Hello World");
+  
+  Scanner in = new Scanner(System.in);
+  Main m = new Main();
+  
+  out.println("Enter the number of the task: ");
+  int n = in.nextInt();
+  switch(n) {
+      case 2:    
+          out.println("Enter the first number: ");
+          int a2 = in.nextInt();
+          out.println("Enter the second number: ");
+          int b2 = in.nextInt();
+          double x2 = m.safeDiv(a2, b2);
+          out.println(x2);
+          break;
+      case 4:
+          out.println("Enter the first number: ");
+          int a4 = in.nextInt();
+          out.println("Enter the second number: ");
+          int b4 = in.nextInt();
+          String x4 = m.makeDecision(a4, b4);
+          out.println(x4);
+          break;
+      case 6:
+          out.println("Enter the first number: ");
+          int a6 = in.nextInt();
+          out.println("Enter the second number: ");
+          int b6 = in.nextInt();
+          out.println("Enter the third number: ");
+          int c6 = in.nextInt();
+          boolean x6 = m.sum3(a6, b6, c6);
+          out.println(x6);
+          break;
+      case 8:
+          out.println("Enter the age: ");
+          int a8 = in.nextInt();
+          String x8 = m.age(a8);
+          out.println(x8);
+          break;
+       case 10:
+          out.println("Enter the day of the week: ");
+          String a10 = in.next();
+          m.printDays(a10);
+          break;
+  }
+  
+ }
+ 
+  public double safeDiv (int x, int y) {
+     if (y == 0) {
+         return 0;
+     }
+     else {
+         return (x / y);
+     }
+ }
+ 
+  public String makeDecision (int x, int y) {
+      if (x > y) {
+          return (x + ">" + y);
+      }
+      if (x < y) {
+          return (x + "<" + y);
+      }
+      else {
+          return (x + "==" + y);
+      }
+  }
+ 
+  public boolean sum3 (int x, int y, int z) {
+      if ((x + y == z)||(y + z == x)||(x + z == y)) {
+          return true;
+      }
+      else {
+          return false;
+      }
+  } 
+ 
+  public String age (int x) {
+      switch(x % 10) {
+          case 1:
+              if (x != 11) {
+                  return (x + " god");
+              }
+              else {
+                  return (x + " let");
+              }
+          case 2: case 3: case 4:
+              if ((x < 12) && (x > 14)) {
+                  return (x + " goda");
+              }
+              else {
+                  return (x + " let");
+              }
+          case 5: case 6: case 7: case 8: case 9: case 0:
+              return (x + " let");
+          default: return "ERROR";
+      }
+  }
+  
+  public void printDays (String x) {
+       switch(x) {
+         case "Monday": out.println("Monday");
+         case "Tuesday": out.println("Tuesday");
+         case "Wednesday": out.println("Wednesday");
+         case "Thursday": out.println("Thursday");
+         case "Friday": out.println("Friday");
+         case "Saturday": out.println("Saturday");
+         case "Sunday": out.println("Sunday"); break;
+         default: out.println("NOT A DAY OF THE WEEK"); break;
+       }
+  }
+ 
+ 
+}
