@@ -92,7 +92,7 @@ public class Main
                   return (x + " let");
               }
           case 2: case 3: case 4:
-              if ((x < 12) && (x > 14)) {
+              if ((x < 12) || (x > 14)) {
                   return (x + " goda");
               }
               else {
