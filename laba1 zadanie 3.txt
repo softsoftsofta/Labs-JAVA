@@ -55,7 +55,7 @@ public class Main
  
   public int pow (int x, int y) {
       int num = 1;
-      for (int i = 1; i < y; i++) {
+      for (int i = 1; i < (y+1); i++) {
           num *= x;
       }
       return num;
